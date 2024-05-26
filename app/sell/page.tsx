@@ -1,63 +1,39 @@
-import {
-  Card,
-  CardContent,
-  CardDescription,
-  CardHeader,
-  CardTitle,
-} from "@/components/ui/card";
-import { Input } from "@/components/ui/input";
-import { Label } from "@/components/ui/label";
-import { SelectCategory } from "../components/SelectCategory";
-import { Textarea } from "@/components/ui/textarea";
-import { RichEditor } from "../components/Editor";
+import { Card } from "@/components/ui/card";
+import { SellForm } from "../components/form/SellForm";
+import { getKindeServerSession } from "@kinde-oss/kinde-auth-nextjs/server";
+import prisma from "../lib/db";
+import { redirect } from "next/navigation";
 
-export default function SellRoute() {
+async function getData(userId: string) {
+  const data = await prisma.user.findUnique({
+    where: {
+      id: userId,
+    },
+    select: {
+      stripeConnectedLinked: true,
+    },
+  });
+
+  if (data?.stripeConnectedLinked === false) {
+    return redirect("/billing");
+  }
+
+  return null;
+}
+
+export default async function SellRoute() {
+  const { getUser } = getKindeServerSession();
+  const user = await getUser();
+
+  if (!user) throw new Error("Unauthorized");
+
+  const data = await getData(user.id);
+
   return (
     <div>
       <section className="max-w-7xl mx-auto px-4 md:px-8 mb-14">
         <Card>
-          <form>
-            <CardHeader>
-              <CardTitle className="text-3xl">
-                Sell your product with ease
-              </CardTitle>
-              <CardDescription className="text-lg">
-                Please describe your product in detail to be sold easily
-              </CardDescription>
-            </CardHeader>
-            <CardContent className="flex flex-col gap-y-10">
-              <div className="flex flex-col gap-y-2">
-                <Label className="font-semibold text-lg">Name</Label>
-                <Input
-                  type="text"
-                  placeholder="Name of your product"
-                  className="text-md"
-                />
-              </div>
-              <div className="flex flex-col gap-y-2">
-                <Label className="font-semibold text-lg">Category</Label>
-                <SelectCategory />
-              </div>
-
-              <div className="flex flex-col gap-y-2">
-                <Label className="font-semibold text-lg">Price</Label>
-                <Input type="number" placeholder="₹750" className="text-md" />
-              </div>
-              <div className="flex flex-col gap-y-2">
-                <Label className="font-semibold text-lg">Product Bio</Label>
-                <Textarea
-                  placeholder="Summarize your product briefly"
-                  className="text-md"
-                />
-              </div>
-              <div className="flex flex-col gap-y-2">
-                <Label className="font-semibold text-lg">
-                  Product Description
-                </Label>
-                <RichEditor />
-              </div>
-            </CardContent>
-          </form>
+          <SellForm />
         </Card>
       </section>
     </div>

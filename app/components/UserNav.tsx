@@ -32,8 +32,8 @@ export function UserNav({ email, name, userImage }: iAppProps) {
       <DropdownMenuContent align="end" className="w-56" forceMount>
         <DropdownMenuLabel className="font-normal">
           <div className="flex flex-col space-y-1">
-            <p className="text-sm font-medium leading-none">{name}</p>
-            <p className="text-xs leading-none text-muted-foreground">
+            <p className="text-md font-semibold leading-none">{name}</p>
+            <p className="text-sm leading-none text-muted-foreground">
               {email}
             </p>
           </div>
@@ -41,15 +41,29 @@ export function UserNav({ email, name, userImage }: iAppProps) {
         <DropdownMenuSeparator />
         <DropdownMenuGroup>
           <DropdownMenuItem asChild>
-            <Link href="/sell">Sell your product</Link>
+            <Link className="font-semibold" href="/sell">
+              Sell your product
+            </Link>
           </DropdownMenuItem>
-          <DropdownMenuItem>test</DropdownMenuItem>
-          <DropdownMenuItem>test</DropdownMenuItem>
-          <DropdownMenuItem>test</DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link className="font-semibold" href="/settings">
+              Settings
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link className="font-semibold" href="my-products">
+              My Products
+            </Link>
+          </DropdownMenuItem>
+          <DropdownMenuItem asChild>
+            <Link className="font-semibold" href="/billing">
+              Billing
+            </Link>
+          </DropdownMenuItem>
         </DropdownMenuGroup>
         <DropdownMenuSeparator />
         <DropdownMenuItem asChild>
-          <LogoutLink>Log out</LogoutLink>
+          <LogoutLink className="font-semibold">Log out</LogoutLink>
         </DropdownMenuItem>
       </DropdownMenuContent>
     </DropdownMenu>

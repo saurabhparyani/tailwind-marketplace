@@ -11,6 +11,7 @@ import {
   extensions,
   useEditor,
   EditorContent,
+  JSONContent,
 } from "@tiptap/react";
 import StarterKit from "@tiptap/starter-kit";
 import {
@@ -149,15 +150,24 @@ export const MenuBar = ({ editor }: { editor: Editor | null }) => {
   );
 };
 
-export function RichEditor() {
+export function RichEditor({
+  setJson,
+  json,
+}: {
+  setJson: any;
+  json: JSONContent | null;
+}) {
   const editor = useEditor({
     extensions: [StarterKit, Underline, Image],
-    content: "<p>Hello World</p>",
+    content: json,
     editorProps: {
       attributes: {
         class:
           "focus:outline-none font-medium text-xl min-h-[150px] prose prose-sm sm:prose-base",
       },
+    },
+    onUpdate: ({ editor }) => {
+      setJson(editor.getJSON());
     },
   });
 

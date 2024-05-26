@@ -30,7 +30,7 @@ export const navbarLinks = [
   {
     id: 1,
     name: "Templates",
-    href: "#",
+    href: "/products/template",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -53,7 +53,7 @@ export const navbarLinks = [
   {
     id: 3,
     name: "UI Kits",
-    href: "#",
+    href: "/products/uikit",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
@@ -77,7 +77,7 @@ export const navbarLinks = [
   {
     id: 4,
     name: "Icons",
-    href: "#",
+    href: "/products/icon",
     icon: (
       <svg
         xmlns="http://www.w3.org/2000/svg"
