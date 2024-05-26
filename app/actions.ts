@@ -163,8 +163,8 @@ export async function BuyProduct(formData: FormData) {
             }
         },
 
-        success_url: process.env.NODE_ENV === 'production' ? 'http://localhost:3000/payment/success' : 'https://tailwind-marketplace.saurabhparyani.dev/payment/success',
-        cancel_url: process.env.NODE_ENV === 'production' ? 'http://localhost:3000/payment/cancel' : 'https://tailwind-marketplace.saurabhparyani.dev/payment/cancel'
+        success_url: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/payment/success' : 'https://tailwind-marketplace.saurabhparyani.dev/payment/success',
+        cancel_url: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/payment/cancel' : 'https://tailwind-marketplace.saurabhparyani.dev/payment/cancel'
     })
 
     return redirect(session.url as string)
