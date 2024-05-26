@@ -7,6 +7,7 @@ import { NextSSRPlugin } from "@uploadthing/react/next-ssr-plugin";
 import { extractRouterConfig } from "uploadthing/server";
 import { ourFileRouter } from "./api/uploadthing/core";
 import { Toaster } from "@/components/ui/sonner";
+import { Footer } from "./components/Footer";
 
 const inter = Inter({ subsets: ["latin"] });
 const nunito = Nunito({
@@ -32,6 +33,7 @@ export default function RootLayout({
         <Navbar />
         {children}
         <Toaster richColors theme="light" closeButton />
+        <Footer />
       </body>
     </html>
   );

@@ -48,7 +48,7 @@ export default async function ProductPage({
   const data = await getData(params.id);
 
   return (
-    <section className="max-w-7xl mx-auto px-4 lg:px-8 lg:grid lg:grid-rows-1 lg:grid-cols-7 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
+    <section className="max-w-7xl mx-auto mb-12 px-4 lg:px-8 lg:grid lg:grid-rows-1 lg:grid-cols-7 lg:gap-x-8 lg:gap-y-10 xl:gap-x-16">
       <Carousel className="lg:row-end-1 lg:col-span-4">
         <CarouselContent>
           {data?.images.map((item, index) => (
