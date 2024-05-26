@@ -26,6 +26,7 @@ export function SellForm() {
   const [state, formAction] = useFormState(SellProduct, initialState);
   const [json, setJson] = useState<null | JSONContent>(null);
   const [images, setImages] = useState<null | string[]>(null);
+  const [productFile, SetProductFile] = useState<null | string>(null);
 
   useEffect(() => {
     if (state.status === "success") {
@@ -131,6 +132,25 @@ export function SellForm() {
           {state?.errors?.[`images`]?.[0] && (
             <p className="text-destructive font-medium text-lg">
               {state?.errors?.[`images`]?.[0]}
+            </p>
+          )}
+        </div>
+        <div className="flex flex-col gap-y-2">
+          <input type="hidden" name="productFile" value={productFile ?? ""} />
+          <Label>Product File</Label>
+          <UploadDropzone
+            onClientUploadComplete={(res) => {
+              SetProductFile(res[0].url);
+              toast.success("Your Product file has been uploaded!");
+            }}
+            endpoint="productFileUpload"
+            onUploadError={(error: Error) => {
+              toast.error("Something went wrong, try again");
+            }}
+          />
+          {state?.errors?.["productFile"]?.[0] && (
+            <p className="text-destructive">
+              {state?.errors?.["productFile"]?.[0]}
             </p>
           )}
         </div>

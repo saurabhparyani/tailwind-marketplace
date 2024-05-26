@@ -33,6 +33,7 @@ model Product {
   smallDescription String
   description      Json
   images           String[]
+  productFile      String
   category         CategoryTypes
 
   createdAt DateTime @default(now())

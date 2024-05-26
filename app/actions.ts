@@ -21,6 +21,9 @@ const productSchema = z.object({
     price: z.number().min(1, {message: 'Price has to be larger than 1'}),
     images: z.array(z.string(), {message: 'Images are required'}),
     category: z.string().min(1,{message: 'Category is required'} ),
+    productFile: z
+    .string()
+    .min(1, { message: "Pleaes upload a zip of your product" }),
 })
 
 const userSettingSchema = z.object({
@@ -43,6 +46,8 @@ export async function SellProduct(prevState: any, formData: FormData){
         description: formData.get("description"),
         price: Number(formData.get("price")),
         images: JSON.parse(formData.get("images") as string),
+        productFile: formData.get("productFile"),
+
     })
 
     if(!validateFields.success){
@@ -63,6 +68,7 @@ export async function SellProduct(prevState: any, formData: FormData){
             description: JSON.parse(validateFields.data.description),
             price: validateFields.data.price,
             images: validateFields.data.images,
+            productFile: validateFields.data.productFile,
             userId: user.id
         }
     })
@@ -122,6 +128,7 @@ export async function BuyProduct(formData: FormData) {
             smallDescription: true,
             price: true,
             images: true,
+            productFile: true,
             User: {
                 select: {
                     connectedAccountId: true
@@ -146,6 +153,9 @@ export async function BuyProduct(formData: FormData) {
                 quantity: 1,
             }
         ],
+        metadata: {
+            link: data?.productFile as string,
+          },
         payment_intent_data: {
             application_fee_amount: (Math.round((data?.price as number) * 100)) * 0.1,
             transfer_data: {
