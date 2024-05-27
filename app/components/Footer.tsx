@@ -43,7 +43,7 @@ export const Footer = () => {
 
   return (
     <footer className="bg-gradient-to-r from-gray-100 via-[#bce1ff] to-gray-100">
-      <div className="max-w-screen-xl px-4 py-7 mx-auto sm:px-6 lg:px-8">
+      <div className="max-w-screen-xl px-4 mt-8 py-5 mx-auto sm:px-6 lg:px-8">
         <div className="flex justify-between flex-col md:flex-row flex-wrap gap-[30px]">
           <div>
             <img

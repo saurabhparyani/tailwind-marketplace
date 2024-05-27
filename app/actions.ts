@@ -118,6 +118,11 @@ export async function UpdateUserSettings(prevState:any ,formData: FormData) {
 }
 
 export async function BuyProduct(formData: FormData) {
+    const { getUser } = getKindeServerSession();
+    const user = await getUser();
+
+    if (!user) throw new Error('Unauthorized');
+
     const id = formData.get("id") as string;
     const data = await prisma.product.findUnique({
         where: {
@@ -137,6 +142,8 @@ export async function BuyProduct(formData: FormData) {
         }
     })
 
+    console.log('User creating session:', user);
+
     const session = await stripe.checkout.sessions.create({
         mode: 'payment',
         line_items: [
@@ -155,6 +162,7 @@ export async function BuyProduct(formData: FormData) {
         ],
         metadata: {
             link: data?.productFile as string,
+            userId: user.id
           },
         payment_intent_data: {
             application_fee_amount: (Math.round((data?.price as number) * 100)) * 0.1,
@@ -166,6 +174,8 @@ export async function BuyProduct(formData: FormData) {
         success_url: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/payment/success' : 'https://tailwind-marketplace.saurabhparyani.dev/payment/success',
         cancel_url: process.env.NODE_ENV === 'development' ? 'http://localhost:3000/payment/cancel' : 'https://tailwind-marketplace.saurabhparyani.dev/payment/cancel'
     })
+
+    console.log('Created Stripe session:', session);
 
     return redirect(session.url as string)
 }
