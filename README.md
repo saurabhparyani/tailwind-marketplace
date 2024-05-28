@@ -1,3 +1,39 @@
+# Tailwind Marketplace: A digital marketplace for buying and selling TailwindCSS templates, UI kits and icons!
+
+## Features/Stack
+
+* 🌐 **Next.js App Router**: Utilizes **Next.js** for **server-side rendering** and **static site generation**, providing a robust routing system.
+* 🔐 **Kinde Authentication**: Implements **Kinde Auth** for **secure authentication**, ensuring user data protection, **supporting passwordless authentication** for a seamless and secure login experience and **integrates OAuth** for easy login using **Google** and **GitHub** accounts.
+* 💰 **Payments using Stripe**: Facilitates **secure payments** through **Stripe**, handling transactions efficiently and uses **Stripe webhooks** to handle events like **account updates** and **checkout sessions**.
+* 🏪 **Marketplace Functionality using Stripe Connect**: Enables **marketplace features** with **Stripe Connect**, allowing **users to buy and sell products**.
+* 💿 **Supabase Database**: Leverages **Supabase** for a scalable and secure database solution.
+* 💨 **Prisma ORM**: Utilizes **Prisma ORM** for seamless database interactions and migrations.
+* ✅ **Server Validation using Zod**: Ensures data integrity with server-side validation using **Zod**.
+* 🗂️ **File Upload with Uploadthing**: Provides **file upload** capabilities using the **Uploadthing** library.
+* 🎨 **Styling with Tailwindcss and Shadcn UI**: Implements **Tailwind CSS** and **Shadcn UI** for modern and responsive design.
+* 📧 **Sending Emails with Resend**: Sends **transactional emails** using the **Resend** library and the **React-Email** library to **design visually appealing emails**.
+* 🚀 **React Streaming**: **Enhances performance** with **faster page loads** and progressive content rendering, leveraging features like **Suspense** for efficient asynchronous data handling.
+
+## Try it on your own
+### Buy a Product
+* Buying a product is simple on Tailwind Marketplace. Simply click on a Product, then click on the Buy Product.
+* You will be directed to a Stripe checkout page where you can enter the below test credentials:
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
 
 ## Getting Started
