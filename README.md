@@ -1,5 +1,8 @@
 # Tailwind Marketplace: A digital marketplace for buying and selling TailwindCSS templates, UI kits and icons!
 
+![Tailwind Marketplace homepage](https://github.com/saurabhparyani/tailwind-marketplace/assets/52228485/4a8e3fb6-9628-4674-adc7-cf0b4c1b9899)
+
+
 ## Features/Stack
 
 * 🌐 **Next.js App Router**: Utilizes **Next.js** for **server-side rendering** and **static site generation**, providing a robust routing system.
@@ -9,29 +12,43 @@
 * 💿 **Supabase Database**: Leverages **Supabase** for a scalable and secure database solution.
 * 💨 **Prisma ORM**: Utilizes **Prisma ORM** for seamless database interactions and migrations.
 * ✅ **Server Validation using Zod**: Ensures data integrity with server-side validation using **Zod**.
+* ✍️ **Rich Text Editing with TipTap Editor**: Implements **TipTap Editor** on the **sell product page** for detailed product descriptions, supporting **rich text features** like **bold** and **italics**.
 * 🗂️ **File Upload with Uploadthing**: Provides **file upload** capabilities using the **Uploadthing** library.
 * 🎨 **Styling with Tailwindcss and Shadcn UI**: Implements **Tailwind CSS** and **Shadcn UI** for modern and responsive design.
 * 📧 **Sending Emails with Resend**: Sends **transactional emails** using the **Resend** library and the **React-Email** library to **design visually appealing emails**.
 * 🚀 **React Streaming**: **Enhances performance** with **faster page loads** and progressive content rendering, leveraging features like **Suspense** for efficient asynchronous data handling.
 
 ## Try it on your own
+
+https://tailwind-marketplace.saurabhparyani.dev/
+
 ### Buy a Product
 * Buying a product is simple on Tailwind Marketplace. Simply click on a Product, then click on the Buy Product.
 * You will be directed to a Stripe checkout page where you can enter the below test credentials:
+* **Email**: Enter any email address, it doesn't matter what gibberish.
+* **Card**: 4242 4242 4242 4242. **MM/YY**: 04/42. **CVV**: 424 [This are the test card details. Do not worry, you will not be paid]
+* **Cardholder Name**: Again, does not matter what you put because this is in test mode.
+  
+  ![Stripe checkout page](https://github.com/saurabhparyani/tailwind-marketplace/assets/52228485/68bacada-ec1d-4e72-8b5c-255c3f1b3fb8)
 
+* When you click on Pay, you will be directed to a success page. Currently, the product bought is being sent to my personal email, and the functionality of sending the email to the user is a WIP.
+* Similarly, if you click on the back button, you will be directed to a cancel page. 
 
-
-
-
-
-
-
-
-
-
-
-
-
+### Sell a product
+* Selling a product requires you to sign up as a user.
+* Once signed up, you need to first **link your account to Stripe.** This takes you to the Stripe Connect dashboard. The following are the details you can put:
+* **Email**: "Email is not needed in test mode". **Mobile Number**: You can click on "**the test phone number** which is US 0000000000.
+* **Verification Code**: **000 000**
+* **Country: United States** **Type of Business: Individual**. Click on Continue.
+* **Legal first name, last name**: You can put your first and last names. Do not worry, since it's in dev mode, nothing really is a big deal. **Your website**: You can just add a **www.github.com**
+* **Select an account for payouts**: **Test Institution**. Agree and Continue. Connect Accounts.
+* **Save Account with Link**: It shows the email address you signed up with, and asks for a US number. Ignore the number and click on "**Not Now**". 
+* **Select an account for payouts**: Shows a list of linked accounts. You can ignore them as they are all test banks. Click on Continue.
+* **Review and Submit**: **Agree and Submit**
+* Now you would get an "Account onboarded" followed by a success page saying "Linking was Successful"
+* Click on your **nav-bar on the top right** and click on **Sell a Product** again.
+* This gives you a complete Dashboard allowing you to sell a product.
+* Once you create your product, you can see it on the homepage! 
 
 
 This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
