@@ -25,9 +25,9 @@ https://tailwind-marketplace.saurabhparyani.dev/
 ### Buy a Product
 * Buying a product is simple on Tailwind Marketplace. Simply click on a Product, then click on the Buy Product.
 * You will be directed to a Stripe checkout page where you can enter the below test credentials:
-* **Email**: Enter any email address, it doesn't matter what gibberish.
+* **Email**: Enter the **email address** that you **wish to receive the product in**. This is **important** because the product will be sent to this email only.
 * **Card**: 4242 4242 4242 4242. **MM/YY**: 04/42. **CVV**: 424 [This are the test card details. Do not worry, you will not be paid]
-* **Cardholder Name**: Again, does not matter what you put because this is in test mode.
+* **Cardholder Name**: This does not matter what you put because Stripe is in test mode.
   
   ![Stripe checkout page](https://github.com/saurabhparyani/tailwind-marketplace/assets/52228485/68bacada-ec1d-4e72-8b5c-255c3f1b3fb8)
 
