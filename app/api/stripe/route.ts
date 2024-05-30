@@ -34,7 +34,7 @@ export async function POST(req: Request) {
 
       if (customerEmail) {
         const { data, error } = await resend.emails.send({
-          from: "Tailwind Marketplace <onboarding@resend.dev>",
+          from: "Tailwind Marketplace <tailwindmarketplace@saurabhparyani.dev>",
           to: [customerEmail],
           subject: "Your Product from Tailwind Marketplace is here 🎉",
           react: ProductEmail({
