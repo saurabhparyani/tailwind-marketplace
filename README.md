@@ -32,7 +32,7 @@ https://tailwind-marketplace.saurabhparyani.dev/
 ![checkout page](https://github.com/saurabhparyani/tailwind-marketplace/assets/52228485/4941a025-32c0-4546-a386-50a84f7fd477)
 
 
-* When you click on Pay, you will be directed to a success page. Currently, the product bought is being sent to my personal email, and the functionality of sending the email to the user is a WIP.
+* When you click on Pay, you will be directed to a success page and you will receive the product in the email you mentioned in the **Stripe checkout page**.
 * Similarly, if you click on the back button, you will be directed to a cancel page. 
 
 ### Sell a product
