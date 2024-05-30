@@ -28,15 +28,22 @@ export async function POST(req: Request) {
       const session = event.data.object;
 
       const link = session.metadata?.link;
+      const customerEmail = session.customer_details?.email;
 
-      const { data, error } = await resend.emails.send({
-        from: "Tailwind Marketplace <onboarding@resend.dev>",
-        to: ["saurabhparyani64@gmail.com"],
-        subject: "Your Product from Tailwind Marketplace is here 🎉",
-        react: ProductEmail({
-            link: link as string,
-        }),
-    });
+      console.log(`Customer email: ${customerEmail}`);
+
+      if (customerEmail) {
+        const { data, error } = await resend.emails.send({
+          from: "Tailwind Marketplace <onboarding@resend.dev>",
+          to: [customerEmail],
+          subject: "Your Product from Tailwind Marketplace is here 🎉",
+          react: ProductEmail({
+              link: link as string,
+          }),
+        });
+      } else {
+        console.error("Customer email is not available.");
+      }
 
       break;
     }
